@@ -11,6 +11,6 @@ public class ServiciosController {
 	
 	@RequestMapping(value = "/servicios", method = RequestMethod.GET)
 	public String servicios(Model model) {
-		return "jsp/catalogos/servicios";
+		return "/catalogos/servicios";
 	}
 }

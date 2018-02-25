@@ -11,6 +11,6 @@ public class MedicamentosController {
 	
 	@RequestMapping(value = "/medicamentos", method = RequestMethod.GET)
 	public String medicamentos(Model model) {
-		return "jsp/catalogos/medicamentos";
+		return "/catalogos/medicamentos";
 	}
 }

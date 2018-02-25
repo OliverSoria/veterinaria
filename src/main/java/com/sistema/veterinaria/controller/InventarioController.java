@@ -11,6 +11,6 @@ public class InventarioController {
 	
 	@RequestMapping(value = "/inventario", method = RequestMethod.GET)
 	public String inventario(Model model) {
-		return "jsp/inventario/inventario";
+		return "/inventario/inventario";
 	}
 }

@@ -11,6 +11,6 @@ public class BitacoraController {
 	
 	@RequestMapping(value = "/bitacora", method = RequestMethod.GET)
 	public String consultarVentas(Model model) {
-		return "jsp/bitacora/bitacora";
+		return "/bitacora/bitacora";
 	}
 }

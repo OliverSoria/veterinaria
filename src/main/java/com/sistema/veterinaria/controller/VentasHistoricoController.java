@@ -11,6 +11,6 @@ public class VentasHistoricoController {
 	
 	@RequestMapping(value = "/ventas-consulta", method = RequestMethod.GET)
 	public String consultarVentas(Model model) {
-		return "jsp/ventas/ventasHistorico";
+		return "/ventas/ventasHistorico";
 	}
 }

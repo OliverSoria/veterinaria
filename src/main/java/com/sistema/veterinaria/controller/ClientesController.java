@@ -11,6 +11,6 @@ public class ClientesController {
 	
 	@RequestMapping(value = "/clientes", method = RequestMethod.GET)
 	public String clientes(Model model) {
-		return "jsp/clientes/clientes";
+		return "/clientes/clientes";
 	}
 }
