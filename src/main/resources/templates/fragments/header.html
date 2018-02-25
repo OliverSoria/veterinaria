@@ -1,11 +1,33 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:fragment="header">
-    <title th:include=":: #pageTitle">Título Génerico</title>
+    <title th:include=":: #tituloPagina">Título Génerico</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     
+    
+    
+    <!-- PENDIENTES DE VALIDAR -->
+	<link rel="stylesheet" type="text/css"  th:href="@{/css/bootstrap-table.min.css}"/>  
+	<link rel="stylesheet" type="text/css"  th:href="@{/css/styles.css}"/>
+	<link rel="stylesheet" type="text/css"  th:href="@{/css/bootstrap-select.min.css}"/>
+	<link rel="shortcut icon" type="image/png"  th:href="@{/images/logoBox.png}"/>
+    
+    
+    
+    <script type="text/javascript" th:src="@{/webjars/angular/1.6.9/angular.min.js}"></script>
     <script type="text/javascript" th:src="@{/webjars/jquery/3.3.1/jquery.min.js}"></script>
+    
+    <!-- PENDIENTES DE VALIDAR -->
+    <script type="text/javascript" th:src="@{/js/scripts.js}"></script>
+	<script type="text/javascript" th:src="@{/js/usuarios/usuarios.js}"></script>
+    
     <script type="text/javascript" th:src="@{/webjars/bootstrap/3.3.7/js/bootstrap.min.js}"></script>
+    
+    <!-- PENDIENTES DE VALIDAR -->
+    <script type="text/javascript" th:src="@{/js/bootstrap-table.min.js}"></script>
+	<script type="text/javascript" th:src="@{/js/bootstrap-table-es-MX.min.js}"></script>
+	<script type="text/javascript" th:src="@{/js/bootstrap-select.min.js}"></script>
+	<script type="text/javascript" th:src="@{/js/defaults-es_CL.min.js}"></script>
     
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}" type="text/css"  />
 </head>
