@@ -1,4 +1,4 @@
-package com.veterinaria.veterinaria;
+package com.sistema.veterinaria;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

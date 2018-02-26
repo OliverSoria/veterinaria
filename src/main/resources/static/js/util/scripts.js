@@ -6,9 +6,14 @@ function formateadorFecha(value, row, index) {
     var resultado = '-';
         
     if (value != null) {
-    	var dia = value.dayOfMonth;
-        var mes = value.monthValue;
-        var anio = value.year; 
+    	console.log(value);
+    	var epoch = new Date(value);
+    	console.log(epoch);
+    	var months = ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
+    	
+    	var dia = epoch.getDate();
+        var mes = months[epoch.getMonth()];
+        var anio = epoch.getFullYear();
 
         resultado = dia + '/' + mes + '/' + anio;
     }
