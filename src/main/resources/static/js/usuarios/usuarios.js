@@ -219,7 +219,7 @@ controladorApp.controller('alta_usuario', function($scope, $http) {
 			 headers: {
 			        'Content-type': 'application/json'
 			 }
-			}).then(function successCallback(response) {
+		}).then(function successCallback(response) {
 			//console.log(response.data);
 			$scope.inputsAltaUsuario = true;
 			$('#tabla-usuarios').bootstrapTable('refresh');
