@@ -3,7 +3,7 @@
 	<head th:include="fragments/header :: header">
 		<title id="tituloPagina">Usuarios</title>
 	</head>
-	<body>
+	<body ng-app="SistemaGestionApp">
 		<div th:replace="fragments/menu :: menu"></div>
 		<!-- Inicio de la página -->
 			
@@ -24,6 +24,8 @@
 			    </div>
 				  
 			</div>
+            <div th:replace="modales/modalDatosUsuario :: modal"></div>
+            
 		<!-- Fin de la página -->
 	</body>
 </html>
