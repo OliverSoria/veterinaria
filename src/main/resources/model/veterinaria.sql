@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 26, 2018 at 12:17 AM
+-- Generation Time: Mar 03, 2018 at 08:07 PM
 -- Server version: 5.5.59-0+deb8u1
 -- PHP Version: 5.6.33-0+deb8u1
 
@@ -23,47 +23,266 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `catalogo_usuarios`
+-- Table structure for table `BITACORA`
 --
 
-CREATE TABLE IF NOT EXISTS `catalogo_usuarios` (
-`id_usuario` int(10) NOT NULL,
-  `alias_usuario` varchar(16) COLLATE utf8_spanish_ci NOT NULL,
-  `nombre_usuario` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
-  `paterno_usuario` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
-  `materno_usuario` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
-  `password_usuario` varchar(64) COLLATE utf8_spanish_ci NOT NULL,
-  `fecha_alta_usuario` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `fecha_baja_usuario` timestamp NULL DEFAULT NULL,
-  `tipo_usuario` varchar(1) COLLATE utf8_spanish_ci NOT NULL
+CREATE TABLE IF NOT EXISTS `BITACORA` (
+`ID_BITACORA` int(11) NOT NULL,
+  `ID_USUARIO_BITACORA` int(11) NOT NULL,
+  `DESCRIPCION_BITACORA` varchar(250) COLLATE utf8_spanish_ci NOT NULL,
+  `FECHA_BITACORA` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `CATALOGO_CLIENTES`
+--
+
+CREATE TABLE IF NOT EXISTS `CATALOGO_CLIENTES` (
+`ID_CLIENTE` int(11) NOT NULL,
+  `NOMBRE_CLIENTE` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
+  `PATERNO_CLIENTE` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
+  `MATERNO_CLIENTE` varchar(50) COLLATE utf8_spanish_ci DEFAULT NULL,
+  `FECHA_ALTA_CLIENTE` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `FECHA_BAJA_CLIENTE` timestamp NULL DEFAULT NULL,
+  `CALLE_CLIENTE` varchar(70) COLLATE utf8_spanish_ci NOT NULL,
+  `NUMERO_CLIENTE` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
+  `CODIGO_POSTAL_CLIENTE` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
+  `COLONIA_CLIENTE` varchar(70) COLLATE utf8_spanish_ci NOT NULL,
+  `MUNICIPIO_CLIENTE` varchar(70) COLLATE utf8_spanish_ci NOT NULL,
+  `ENTIDAD_FEDERATIVA` varchar(50) COLLATE utf8_spanish_ci NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
--- Dumping data for table `catalogo_usuarios`
+-- Dumping data for table `CATALOGO_CLIENTES`
 --
 
-INSERT INTO `catalogo_usuarios` (`id_usuario`, `alias_usuario`, `nombre_usuario`, `paterno_usuario`, `materno_usuario`, `password_usuario`, `fecha_alta_usuario`, `fecha_baja_usuario`, `tipo_usuario`) VALUES
-(1, 'oliver666', 'Oliver', 'Soria', 'Peláez', 'sdgfsd', '2018-01-01 06:00:00', NULL, 'A');
+INSERT INTO `CATALOGO_CLIENTES` (`ID_CLIENTE`, `NOMBRE_CLIENTE`, `PATERNO_CLIENTE`, `MATERNO_CLIENTE`, `FECHA_ALTA_CLIENTE`, `FECHA_BAJA_CLIENTE`, `CALLE_CLIENTE`, `NUMERO_CLIENTE`, `CODIGO_POSTAL_CLIENTE`, `COLONIA_CLIENTE`, `MUNICIPIO_CLIENTE`, `ENTIDAD_FEDERATIVA`) VALUES
+(1, 'Cliente 1', 'Cliente Paterno', 'Clientte Materno', '2018-03-04 02:05:03', NULL, 'eww', 'ew', 'ew', 'ew', 'ew', 'ew');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `CATALOGO_MEDICAMENTOS`
+--
+
+CREATE TABLE IF NOT EXISTS `CATALOGO_MEDICAMENTOS` (
+  `ID_MEDICAMENTO` varchar(1) CHARACTER SET utf8 COLLATE utf8_swedish_ci NOT NULL,
+  `CODIGO_MEDICAMENTO` bigint(13) NOT NULL,
+  `NOMBRE_MEDICAMENTO` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
+  `SUSTANCIA_MEDICAMENTO` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
+  `FARMACEUTICA_MEDICAMENTO` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
+  `PRESENTACION_MEDICAMENTO` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
+  `DESCRIPCION_MEDICAMENTO` varchar(300) COLLATE utf8_spanish_ci NOT NULL,
+  `NUMERO_MAXIMO_MEDICAMENTO` int(3) NOT NULL,
+  `NUMERO_MINIMO_MEDICAMENTO` int(3) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `CATALOGO_PRODUCTOS`
+--
+
+CREATE TABLE IF NOT EXISTS `CATALOGO_PRODUCTOS` (
+  `ID_PRODUCTO` varchar(1) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  `CODIGO_PRODUCTO` bigint(13) NOT NULL,
+  `NOMBRE_PRODUCTO` varchar(50) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  `MARCA_PRODUCTO` varchar(50) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  `PRESENTACION_PRODUCTO` varchar(50) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  `DESCRIPCION_PRODUCTO` varchar(250) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  `NUMERO_MAXIMO_PRODUCTO` int(3) NOT NULL,
+  `NUMERO_MINIMO_PRODUCTO` int(3) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_swedish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `CATALOGO_SERVICIOS`
+--
+
+CREATE TABLE IF NOT EXISTS `CATALOGO_SERVICIOS` (
+  `ID_SERVICIO` varchar(1) COLLATE utf8_spanish_ci NOT NULL,
+  `CODIGO_SERVICIO` bigint(13) NOT NULL,
+  `NOMBRE_SERVICIO` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
+  `DESCRIPCION_SERVICIO` varchar(250) COLLATE utf8_spanish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `CATALOGO_USUARIOS`
+--
+
+CREATE TABLE IF NOT EXISTS `CATALOGO_USUARIOS` (
+`ID_USUARIO` int(11) NOT NULL,
+  `ALIAS_USUARIO` varchar(16) COLLATE utf8_spanish_ci NOT NULL,
+  `NOMBRE_USUARIO` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
+  `PATERNO_USUARIO` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
+  `MATERNO_USUARIO` varchar(30) COLLATE utf8_spanish_ci NOT NULL,
+  `PASSWORD_USUARIO` varchar(64) COLLATE utf8_spanish_ci NOT NULL,
+  `FECHA_ALTA_USUARIO` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `FECHA_BAJA_USUARIO` timestamp NULL DEFAULT NULL,
+  `TIPO_USUARIO` varchar(1) COLLATE utf8_spanish_ci NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=667 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Dumping data for table `CATALOGO_USUARIOS`
+--
+
+INSERT INTO `CATALOGO_USUARIOS` (`ID_USUARIO`, `ALIAS_USUARIO`, `NOMBRE_USUARIO`, `PATERNO_USUARIO`, `MATERNO_USUARIO`, `PASSWORD_USUARIO`, `FECHA_ALTA_USUARIO`, `FECHA_BAJA_USUARIO`, `TIPO_USUARIO`) VALUES
+(1, 'oliver666', 'Oliver', 'Soria', 'Peláez', 'sdgfsd', '2018-01-01 06:00:00', NULL, 'A'),
+(666, 'Demoniaco', 'Damian', 'Donceles', 'Duarte', 'dddd', '2018-03-04 02:03:24', NULL, 'A');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `HISTORICO_VENTAS`
+--
+
+CREATE TABLE IF NOT EXISTS `HISTORICO_VENTAS` (
+  `ID_VENTA` int(11) NOT NULL,
+  `ID_USUARIO_VENTA` int(11) NOT NULL,
+  `CODIGO_VENTA` bigint(13) NOT NULL,
+  `CANTIDAD_VENTA` decimal(7,2) NOT NULL,
+  `FECHA_VENTA` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `ESTATUS_PRODUCTO_VENTA` varchar(1) COLLATE utf8_spanish_ci NOT NULL,
+  `CLIENTE_VENTA` int(11) NOT NULL,
+  `DESCUENTO_VENTA` int(3) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `INVENTARIO_ALMACEN`
+--
+
+CREATE TABLE IF NOT EXISTS `INVENTARIO_ALMACEN` (
+  `ID_TIPO_INVENTARIO` varchar(1) COLLATE utf8_spanish_ci NOT NULL,
+  `CODIGO_INVENTARIO` bigint(13) NOT NULL,
+  `FECHA_INGRESO_INVENTARIO` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `CANTIDAD_INVENTARIO` int(11) NOT NULL,
+  `FECHA_CADUCIDAD_INVENTARIO` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `LOTE_INVENTARIO` int(3) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `PARCIALIDADES`
+--
+
+CREATE TABLE IF NOT EXISTS `PARCIALIDADES` (
+  `ID_PARCIALIDAD` int(11) NOT NULL,
+  `ID_PARCIALIDAD_VENTA` int(11) NOT NULL,
+  `NUMERO_PARCIALIDAD` int(2) NOT NULL,
+  `CANTIDAD_PARCIALIDAD` decimal(7,2) NOT NULL,
+  `FECHA_PARCIALIDAD` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Dumping data for table `PARCIALIDADES`
+--
+
+INSERT INTO `PARCIALIDADES` (`ID_PARCIALIDAD`, `ID_PARCIALIDAD_VENTA`, `NUMERO_PARCIALIDAD`, `CANTIDAD_PARCIALIDAD`, `FECHA_PARCIALIDAD`) VALUES
+(1, 1, 1, 12.23, '2018-03-04 01:56:21');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `catalogo_usuarios`
+-- Indexes for table `BITACORA`
 --
-ALTER TABLE `catalogo_usuarios`
- ADD PRIMARY KEY (`id_usuario`);
+ALTER TABLE `BITACORA`
+ ADD PRIMARY KEY (`ID_BITACORA`,`ID_USUARIO_BITACORA`), ADD UNIQUE KEY `ID_USUARIO_BITACORA` (`ID_USUARIO_BITACORA`);
+
+--
+-- Indexes for table `CATALOGO_CLIENTES`
+--
+ALTER TABLE `CATALOGO_CLIENTES`
+ ADD PRIMARY KEY (`ID_CLIENTE`);
+
+--
+-- Indexes for table `CATALOGO_MEDICAMENTOS`
+--
+ALTER TABLE `CATALOGO_MEDICAMENTOS`
+ ADD PRIMARY KEY (`ID_MEDICAMENTO`);
+
+--
+-- Indexes for table `CATALOGO_PRODUCTOS`
+--
+ALTER TABLE `CATALOGO_PRODUCTOS`
+ ADD PRIMARY KEY (`ID_PRODUCTO`);
+
+--
+-- Indexes for table `CATALOGO_SERVICIOS`
+--
+ALTER TABLE `CATALOGO_SERVICIOS`
+ ADD PRIMARY KEY (`ID_SERVICIO`);
+
+--
+-- Indexes for table `CATALOGO_USUARIOS`
+--
+ALTER TABLE `CATALOGO_USUARIOS`
+ ADD PRIMARY KEY (`ID_USUARIO`), ADD UNIQUE KEY `alias_usuario` (`ALIAS_USUARIO`);
+
+--
+-- Indexes for table `HISTORICO_VENTAS`
+--
+ALTER TABLE `HISTORICO_VENTAS`
+ ADD PRIMARY KEY (`ID_VENTA`,`ID_USUARIO_VENTA`,`CODIGO_VENTA`,`CLIENTE_VENTA`), ADD KEY `ID_USUARIO_VENTA` (`ID_USUARIO_VENTA`), ADD KEY `CLIENTE_VENTA` (`CLIENTE_VENTA`);
+
+--
+-- Indexes for table `INVENTARIO_ALMACEN`
+--
+ALTER TABLE `INVENTARIO_ALMACEN`
+ ADD PRIMARY KEY (`ID_TIPO_INVENTARIO`);
+
+--
+-- Indexes for table `PARCIALIDADES`
+--
+ALTER TABLE `PARCIALIDADES`
+ ADD PRIMARY KEY (`ID_PARCIALIDAD`,`ID_PARCIALIDAD_VENTA`), ADD UNIQUE KEY `ID_PARCIALIDAD_VENTA` (`ID_PARCIALIDAD_VENTA`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `catalogo_usuarios`
+-- AUTO_INCREMENT for table `BITACORA`
 --
-ALTER TABLE `catalogo_usuarios`
-MODIFY `id_usuario` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+ALTER TABLE `BITACORA`
+MODIFY `ID_BITACORA` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `CATALOGO_CLIENTES`
+--
+ALTER TABLE `CATALOGO_CLIENTES`
+MODIFY `ID_CLIENTE` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `CATALOGO_USUARIOS`
+--
+ALTER TABLE `CATALOGO_USUARIOS`
+MODIFY `ID_USUARIO` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=667;
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `BITACORA`
+--
+ALTER TABLE `BITACORA`
+ADD CONSTRAINT `BITACORA_ibfk_1` FOREIGN KEY (`ID_USUARIO_BITACORA`) REFERENCES `CATALOGO_USUARIOS` (`ID_USUARIO`);
+
+--
+-- Constraints for table `HISTORICO_VENTAS`
+--
+ALTER TABLE `HISTORICO_VENTAS`
+ADD CONSTRAINT `HISTORICO_VENTAS_ibfk_3` FOREIGN KEY (`ID_VENTA`) REFERENCES `PARCIALIDADES` (`ID_PARCIALIDAD_VENTA`),
+ADD CONSTRAINT `HISTORICO_VENTAS_ibfk_1` FOREIGN KEY (`ID_USUARIO_VENTA`) REFERENCES `CATALOGO_USUARIOS` (`ID_USUARIO`),
+ADD CONSTRAINT `HISTORICO_VENTAS_ibfk_2` FOREIGN KEY (`CLIENTE_VENTA`) REFERENCES `CATALOGO_CLIENTES` (`ID_CLIENTE`);
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
