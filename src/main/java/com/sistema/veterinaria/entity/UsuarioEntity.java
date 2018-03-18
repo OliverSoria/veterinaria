@@ -17,40 +17,40 @@ import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "catalogo_usuarios")
+@Table(name = "CATALOGO_USUARIOS")
 public class UsuarioEntity implements Serializable {
 	
 	private static final long serialVersionUID = 5938961363517448690L;
 
 	@Id
-	@Column(name = "id_usuario")
+	@Column(name = "ID_USUARIO")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private BigInteger id_usuario;          		
+	private BigInteger idUsuario;          		
 
-	@Column(name = "alias_usuario")
-	private String alias_usuario;       		
+	@Column(name = "ALIAS_USUARIO")
+	private String aliasUsuario;       		
 
-	@Column(name = "nombre_usuario")
-	private String nombre_usuario;      		
+	@Column(name = "NOMBRE_USUARIO")
+	private String nombreUsuario;      		
 
-	@Column(name = "paterno_usuario")
-	private String paterno_usuario;     		
+	@Column(name = "PATERNO_USUARIO")
+	private String paternoUsuario;     		
 
-	@Column(name = "materno_usuario")
-	private String materno_usuario;     		
+	@Column(name = "MATERNO_USUARIO")
+	private String maternoUsuario;     		
 
-	@Column(name = "password_usuario")
-	private String password_usuario;    		
+	@Column(name = "PASSWORD_USUARIO")
+	private String passwordUsuario;    		
 
-	@Column(name = "fecha_alta_usuario")
+	@Column(name = "FECHA_ALTA_USUARIO")
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date fecha_alta_usuario;      
+	private Date fechaAltaUsuario;      
 
-	@Column(name = "fecha_baja_usuario")
+	@Column(name = "FECHA_BAJA_USUARIO")
 	@Temporal(TemporalType.TIMESTAMP)
-	private Date fecha_baja_usuario;      
+	private Date fechaBajaUsuario;      
 
-	@Column(name = "tipo_usuario")
-	private String tipo_usuario;
+	@Column(name = "TIPO_USUARIO")
+	private String tipoUsuario;
 
 }
