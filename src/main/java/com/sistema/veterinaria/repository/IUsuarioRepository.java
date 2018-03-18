@@ -6,8 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.sistema.veterinaria.entity.UsuarioEntity;
 
 @Repository
-public interface UsuarioRepository extends JpaRepository<UsuarioEntity, Integer> {
-	
-	
+public interface IUsuarioRepository extends JpaRepository<UsuarioEntity, Integer> {
 
 }
