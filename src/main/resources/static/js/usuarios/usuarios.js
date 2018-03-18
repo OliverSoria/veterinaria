@@ -13,31 +13,31 @@ $(document).ready(function () {
 	    		
 	    	},
 	    	{
-	    		field: 'alias_usuario',
+	    		field: 'aliasUsuario',
 	    		title: 'Usuario',
 	    		valign: 'middle',
 	    		sortable: true
 	    	}, 
 	    	{
-	    		field: 'nombre_usuario',
+	    		field: 'nombreUsuario',
 	    		title: 'Nombre',
 	    		valign: 'middle',
 	    		sortable: true
 	    	}, 
 	    	{
-	    		field: 'paterno_usuario',
+	    		field: 'paternoUsuario',
 	    		title: 'Apellido Paterno',
 	    		valign: 'middle',
 	    		sortable: true
 		    }, 
 	    	{
-		    	field: 'materno_usuario',
+		    	field: 'maternoUsuario',
 		    	title: 'Apellido Materno',
 	    		valign: 'middle',
 	    		sortable: true
 	    	},
 	    	{
-		    	field: 'fecha_alta_usuario',
+		    	field: 'fechaAltaUsuario',
 		    	title: 'Fecha de Alta',
 		    	formatter: formateadorFecha,
 		    	align: 'center',
@@ -45,7 +45,7 @@ $(document).ready(function () {
 	    		sortable: true
 	    	},
 	    	{
-		    	field: 'fecha_baja_usuario',
+		    	field: 'fechaBajaUsuario',
 		    	title: 'Fecha de Baja',
 		    	formatter: formateadorFecha,
 		    	align: 'center',
@@ -53,7 +53,7 @@ $(document).ready(function () {
 	    		sortable: true
 	    	},
 	    	{
-		    	field: 'tipo_usuario',
+		    	field: 'tipoUsuario',
 		    	title: 'Tipo de Usuario',
 		    	formatter: formateadorTipoUsuario,
 		    	align: 'center',
