@@ -32,46 +32,46 @@ public class UsuarioService {
 	public void saveUser(UsuarioEntity user) throws Exception {
 		
 		// Validaciones
-		if (user.getAlias_usuario() == null || 
-				user.getAlias_usuario().trim().isEmpty()) {
+		if (user.getAliasUsuario() == null || 
+				user.getAliasUsuario().trim().isEmpty()) {
 			throw new Exception();
-		} else if (user.getNombre_usuario() == null || 
-				user.getNombre_usuario().trim().isEmpty()) {
+		} else if (user.getNombreUsuario() == null || 
+				user.getNombreUsuario().trim().isEmpty()) {
 			throw new Exception();
-		} else if (user.getPaterno_usuario() == null || 
-				user.getPaterno_usuario().trim().isEmpty()) {
+		} else if (user.getPaternoUsuario() == null || 
+				user.getPaternoUsuario().trim().isEmpty()) {
 			throw new Exception();
-		} else if (user.getMaterno_usuario() == null || 
-				user.getMaterno_usuario().trim().isEmpty()) {
+		} else if (user.getMaternoUsuario() == null || 
+				user.getMaternoUsuario().trim().isEmpty()) {
 			throw new Exception();
-		} else if (user.getMaterno_usuario() == null || 
-				user.getMaterno_usuario().trim().isEmpty()) {
+		} else if (user.getMaternoUsuario() == null || 
+				user.getMaternoUsuario().trim().isEmpty()) {
 			throw new Exception();
-		} else if (user.getPassword_usuario() == null || 
-				user.getPassword_usuario().trim().isEmpty()) {
+		} else if (user.getPasswordUsuario() == null || 
+				user.getPasswordUsuario().trim().isEmpty()) {
 			throw new Exception();
-		} else if (user.getTipo_usuario() == null || 
-				user.getTipo_usuario().trim().isEmpty()) {
+		} else if (user.getTipoUsuario() == null || 
+				user.getTipoUsuario().trim().isEmpty()) {
 			throw new Exception();
-		} else if (user.getTipo_usuario() == null || 
-				user.getTipo_usuario().trim().isEmpty()) {
+		} else if (user.getTipoUsuario() == null || 
+				user.getTipoUsuario().trim().isEmpty()) {
 			throw new Exception();
 		}
-		
+		// Pendiente ver tema de fecha
 //		user.setFecha_alta_usuario(LocalDateTime.now());
 		
-		switch (user.getTipo_usuario()) {
+		switch (user.getTipoUsuario()) {
 		
 		case "Administrador" :
-			user.setTipo_usuario("A");
+			user.setTipoUsuario("A");
 			break;
 			
 		case "Supervisor" :
-			user.setTipo_usuario("S");
+			user.setTipoUsuario("S");
 			break;
 		
 		case "Vendedor" :
-			user.setTipo_usuario("V");
+			user.setTipoUsuario("V");
 			break;
 		
 		default :
