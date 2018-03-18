@@ -8,13 +8,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.sistema.veterinaria.entity.UsuarioEntity;
-import com.sistema.veterinaria.repository.UsuarioRepository;
+import com.sistema.veterinaria.repository.IUsuarioRepository;
 
 @Service
 public class UsuarioService {
 	
 	@Autowired
-	UsuarioRepository usuario;
+	IUsuarioRepository usuario;
 	
 	public List<UsuarioEntity> getUsers() throws Exception {
 		
