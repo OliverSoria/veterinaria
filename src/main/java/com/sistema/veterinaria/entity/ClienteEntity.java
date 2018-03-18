@@ -1,7 +1,6 @@
 package com.sistema.veterinaria.entity;
 
 import java.io.Serializable;
-import java.math.BigInteger;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -25,7 +24,7 @@ public class ClienteEntity implements Serializable {
 	@Id
 	@Column(name = "ID_CLIENTE")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private BigInteger idCliente;  
+	private Integer idCliente;  
 	
 	@Column(name = "NOMBRE_CLIENTE")
 	private String nombreCliente;      		

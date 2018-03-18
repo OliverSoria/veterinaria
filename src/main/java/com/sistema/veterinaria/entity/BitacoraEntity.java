@@ -25,12 +25,12 @@ public class BitacoraEntity implements Serializable {
 	@Id
 	@Column(name = "ID_BITACORA ")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private BigInteger idBitacora; 
+	private Integer idBitacora; 
 	
 	@Id
 	@Column(name = "ID_USUARIO_BITACORA")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private BigInteger idUsuarioBitacora; 
+	private Integer idUsuarioBitacora; 
 	
 	@Column(name = "DESCRIPCION_BITACORA")
 	private String descripcionBitacora; 
