@@ -5,6 +5,27 @@
 	</head>
 	<body>
 		<div th:replace="fragments/menu :: menu"></div>
-		<h1>Servicios</h1>
+		<!-- Inicio de la página -->
+			
+			<h1 class="text-center">Servicios</h1>
+			<div class="container">
+				<table id="tabla-servicios" 
+			       data-toggle="table"
+			       data-height="450"
+			       data-pagination="true"
+			       data-search="true"
+			       data-click-to-select="true">
+			    </table>
+			    
+			    <div class="row text-center" ng-controller="operaciones_servicios">
+			    	<button id='boton2' class="btn btn-danger" ng-click="eliminarServicio()">Eliminar</button>
+			    	<button id='boton3' class="btn btn-warning" ng-click="modificarServicio()">Modificar</button>
+			    	<button id='boton1' class="btn btn-success" ng-click="agregarServicio()">Agregar</button>
+			    </div>
+				  
+			</div>
+            <div th:replace="modales/modalDatosUsuario :: modal"></div>
+            
+		<!-- Fin de la página -->
 	</body>
 </html>

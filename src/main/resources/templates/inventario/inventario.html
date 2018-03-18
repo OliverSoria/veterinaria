@@ -5,6 +5,27 @@
 	</head>
 	<body>
 		<div th:replace="fragments/menu :: menu"></div>
-		<h1>Inventario</h1>
+		<!-- Inicio de la página -->
+			
+			<h1 class="text-center">Inventario</h1>
+			<div class="container">
+				<table id="tabla-inventario" 
+			       data-toggle="table"
+			       data-height="450"
+			       data-pagination="true"
+			       data-search="true"
+			       data-click-to-select="true">
+			    </table>
+			    
+			    <div class="row text-center" ng-controller="operaciones_inventario">
+			    	<button id='boton2' class="btn btn-danger" ng-click="eliminarInventario()">Eliminar</button>
+			    	<button id='boton3' class="btn btn-warning" ng-click="modificarInventario()">Modificar</button>
+			    	<button id='boton1' class="btn btn-success" ng-click="agregarInventario()">Agregar</button>
+			    </div>
+				  
+			</div>
+            <div th:replace="modales/modalDatosUsuario :: modal"></div>
+            
+		<!-- Fin de la página -->
 	</body>
 </html>
