@@ -7,5 +7,5 @@ import com.sistema.veterinaria.entity.UsuarioEntity;
 
 @Repository
 public interface IUsuarioRepository extends JpaRepository<UsuarioEntity, Integer> {
-
+	UsuarioEntity findAllByAliasUsuario(String aliasUsuario);
 }

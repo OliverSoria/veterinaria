@@ -1,7 +1,6 @@
 package com.sistema.veterinaria.service;
 
-import java.time.LocalDateTime;
-import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,19 +8,20 @@ import org.springframework.stereotype.Service;
 
 import com.sistema.veterinaria.entity.UsuarioEntity;
 import com.sistema.veterinaria.repository.IUsuarioRepository;
+import com.sistema.veterinaria.util.ExceptionCustomized;
 
 @Service
-public class UsuarioService {
+public class UsuariosService {
 	
 	@Autowired
-	IUsuarioRepository usuario;
+	private IUsuarioRepository usuarioRepository;
 	
 	public List<UsuarioEntity> getUsers() throws Exception {
 		
 		List<UsuarioEntity> retorno = null;
 		
 		try {
-			retorno = usuario.findAll();
+			retorno = usuarioRepository.findAll();
 		} catch (Exception e) {
 			throw e;
 		}
@@ -32,7 +32,9 @@ public class UsuarioService {
 	public void saveUser(UsuarioEntity user) throws Exception {
 		
 		// Validaciones
-		if (user.getAliasUsuario() == null || 
+	    if (user.getIdUsuario() != null ) {    
+	    	throw new ExceptionCustomized("Se detectó ID del Usuario");
+	    } else if (user.getAliasUsuario() == null || 
 				user.getAliasUsuario().trim().isEmpty()) {
 			throw new Exception();
 		} else if (user.getNombreUsuario() == null || 
@@ -57,8 +59,8 @@ public class UsuarioService {
 				user.getTipoUsuario().trim().isEmpty()) {
 			throw new Exception();
 		}
-		// Pendiente ver tema de fecha
-//		user.setFecha_alta_usuario(LocalDateTime.now());
+
+		user.setFechaAltaUsuario(new Date());
 		
 		switch (user.getTipoUsuario()) {
 		
@@ -78,14 +80,20 @@ public class UsuarioService {
 			throw new Exception();
 		}
 		
-		usuario.save(user);
+		usuarioRepository.save(user);
 		
 	}
 	
 	public void updateUser(UsuarioEntity user) throws Exception {
-	//	user.setFecha_baja_usuario(LocalDateTime.now());
-		
-		usuario.save(user);
+		usuarioRepository.save(user);
 	}
-
+	
+	public void deleteUser(String aliasUsuario) throws Exception {
+		if (aliasUsuario == null || !aliasUsuario.trim().isEmpty()) {
+			throw new ExceptionCustomized("Usuario Inválido");
+		}
+		
+		usuarioRepository.delete(
+				usuarioRepository.findAllByAliasUsuario(aliasUsuario));
+	}
 }

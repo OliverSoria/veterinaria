@@ -13,4 +13,9 @@ public class VentasController {
 	public String realizarVenta(Model model) {
 		return "/ventas/ventas";
 	}
+	
+	@RequestMapping(value = "/ventas-consulta", method = RequestMethod.GET)
+	public String consultarVentas(Model model) {
+		return "/ventas/ventasHistorico";
+	}
 }

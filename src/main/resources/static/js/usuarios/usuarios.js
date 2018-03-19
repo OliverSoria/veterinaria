@@ -63,6 +63,7 @@ $(document).ready(function () {
 	    	],
 	    onLoadSuccess: function (data) {
 	    	usuarios = data;
+	    	console.log(data);
 	    }
 	});
 });
@@ -200,15 +201,15 @@ controladorApp.controller('alta_usuario', function($scope, $http) {
 		var tipoUsario = $('.selectpicker').selectpicker('val');
 		
 		user = {
-			id_usuario         : 1               ,
-			alias_usuario      : usuario.alias   ,
-			nombre_usuario     : usuario.nombre  ,
-			paterno_usuario    : usuario.paterno ,
-			materno_usuario    : usuario.materno ,
-			password_usuario   : usuario.password,
-			fecha_alta_usuario : null            ,
-			fecha_baja_usuario : null            ,
-			tipo_usuario       : tipoUsario
+			idUsuario         : 89            ,
+			aliasUsuario      : usuario.alias   ,
+			nombreUsuario     : usuario.nombre  ,
+			paternoUsuario    : usuario.paterno ,
+			maternoUsuario    : usuario.materno ,
+			passwordUsuario   : usuario.password,
+			fechaAltaUsuario  : null            ,
+			fechaBajaUsuario  : null            ,
+			tipoUsuario       : tipoUsario
 		}
 		
 		// Sends bean to server
@@ -230,7 +231,7 @@ controladorApp.controller('alta_usuario', function($scope, $http) {
 			$('.selectpicker').prop('disabled', true);
 			$('.selectpicker').selectpicker('refresh');
 		}, function errorCallback(response) {
-			$scope.textAltaUsuario = response.message;
+			$scope.textAltaUsuario = response.data;
 			console.log(response.message);
 		});
 	}
@@ -336,7 +337,7 @@ controladorApp.controller('alta_usuario', function($scope, $http) {
 			if (usuarios.length > 0) {
 				for (var i = 0; i < usuarios.length; i++) {
 					// Si el usuario no esta disponible
-					if (usuarios[i].alias_usuario.toLowerCase().trim() === $scope.usuario.alias.toLowerCase().trim()) {
+					if (usuarios[i].aliasUsuario.toLowerCase().trim() === $scope.usuario.alias.toLowerCase().trim()) {
 						$scope.textAltaUsuario = "Usuario no disponible";
 						$scope.alertUserClasses = 'alert alert-danger alert-info-modal text-center';
 						$scope.iconsUserUsuarioClasses = 'glyphicon glyphicon-remove form-control-feedback glyphicon-input';
