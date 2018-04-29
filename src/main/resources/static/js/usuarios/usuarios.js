@@ -201,7 +201,7 @@ controladorApp.controller('alta_usuario', function($scope, $http) {
 		var tipoUsario = $('.selectpicker').selectpicker('val');
 		
 		user = {
-			idUsuario         : 89            ,
+			idUsuario         : null            ,
 			aliasUsuario      : usuario.alias   ,
 			nombreUsuario     : usuario.nombre  ,
 			paternoUsuario    : usuario.paterno ,
