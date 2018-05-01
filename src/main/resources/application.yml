@@ -1,0 +1,18 @@
+server:
+  context-path: /veterinaria
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    password: root
+    url: jdbc:mysql://localhost/veterinaria?serverTimezone=UTC
+    username: root
+  jpa:
+    hibernate:
+      ddl-auto: none
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+  thymeleaf:
+    cache: 'false'
