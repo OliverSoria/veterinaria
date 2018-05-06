@@ -23,5 +23,20 @@
     "name": "hibernate.dialect",
     "type": "java.lang.String",
     "description": "A description for 'hibernate.dialect'"
+  },
+  {
+    "name": "spring.security.user.name",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.security.user.name'"
+  },
+  {
+    "name": "spring.security.user.password",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.security.user.password'"
+  },
+  {
+    "name": "spring.security.user.roles",
+    "type": "java.lang.String",
+    "description": "A description for 'spring.security.user.roles'"
   }
 ]}

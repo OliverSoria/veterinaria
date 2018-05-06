@@ -1,8 +1,12 @@
+security:
+  user:
+    name: oliver
+    password: pass
+    role: ADMINISTRADOR
 server:
   context-path: /veterinaria
 spring:
   datasource:
-    driver-class-name: com.mysql.jdbc.Driver
     password: root
     url: jdbc:mysql://localhost/veterinaria?serverTimezone=UTC
     username: root
