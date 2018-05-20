@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head th:include="fragments/header :: header">
+		<title id="tituloPagina">Login</title>
+	</head>
+	<body ng-app="SistemaGestionApp">
+		
+		<!-- Inicio de la página -->
+		<form name="f" th:action="@{/login}" method="post" class="form-signin">
+			<h2>Introduzca sus datos</h2>		
+			<div th:if="${param.error}" class="alert alert-danger">
+				Usario y contraseña invalidos
+			</div>
+			<div th:if="${param.logout}" class="alert alert-success">
+				Has cerrado sesion
+			</div>		
+			<label for="username" class="sr-only">Usuario</label>
+			<input type="text" id="username" name="username" class="form-control" placeholder="Usuario" required="true" />
+			<label for="password" class="sr-only">Contraseña</label>
+			<input type="password" id="password" name="password" class="form-control" placeholder="Contraseña" required="true" />
+			<div class="checkbox">
+				<label>
+					<input id="remember-me" name="remember-me" type="checkbox"/> Recuerdame
+				</label>
+			</div>
+			<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+		</form>
+            
+		<!-- Fin de la página -->
+	</body>
+</html>
