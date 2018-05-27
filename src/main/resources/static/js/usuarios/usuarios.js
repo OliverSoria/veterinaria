@@ -606,3 +606,4 @@ controladorApp.controller('alta_usuario', function($scope, $http) {
 		$scope.tituloAltaUsuario = 'Agregar nuevo usuario';
 	}
 });
+	
