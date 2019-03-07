@@ -120,8 +120,10 @@ controladorApp.controller('operaciones_usuarios', function($scope, $http) {
 		
 		if (fila.length < 1) {
 			// Seleccione el usuario que desea eliminar
-			$('#modal-info').modal('show');
+			$('#modal-ningun-usuario').modal('show');
+			console.log('No se ha seleccionado ningún usuario');
 		} else {
+			console.log('Confirmar que desea eliminar un usuario');
 			// Ask for confirmation
 		}
 	}
@@ -185,7 +187,7 @@ controladorApp.controller('alta_usuario', function($scope, $http) {
 	
 	// Titulo del panel de alta
 	$scope.tituloAltaUsuario = 'Agregar nuevo usuario';
-	
+
 	// Texto del mensaje en Alta Usuario
 	$scope.textAltaUsuario = 'Favor de capturar la informaci\u00F3n';
 	
