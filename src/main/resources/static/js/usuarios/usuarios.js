@@ -7,9 +7,8 @@ controladorApp.controller('operaciones_usuarios', function($scope, $http) {
 
     // Baja
     $scope.eliminarUsuario = function() {
-        var fila = $('#tabla-usuarios').bootstrapTable('getSelections');
 
-        if (fila.length < 1) {
+        if (registroSeleccionado()) {
             $('#modal-ningun-usuario').modal('show');
         } else {
             $('#modal-eliminar-usuario p').html(
@@ -19,5 +18,10 @@ controladorApp.controller('operaciones_usuarios', function($scope, $http) {
     }
 
     // Modificacion
+    // if (registroSeleccionado()) {
+    //     $('#modal-ningun-usuario').modal('show');
+    // } else {
+    //     // Se procede con la modificacion
+    // }
 
 });

@@ -38,7 +38,6 @@ $(document).ready(function () {
             {
                 field: 'fechaAltaUsuario',
                 title: 'Fecha de Alta',
-                formatter: formateadorFecha,
                 align: 'center',
                 valign: 'middle',
                 sortable: true
@@ -46,7 +45,6 @@ $(document).ready(function () {
             {
                 field: 'fechaBajaUsuario',
                 title: 'Fecha de Baja',
-                formatter: formateadorFecha,
                 align: 'center',
                 valign: 'middle',
                 sortable: true
@@ -62,7 +60,6 @@ $(document).ready(function () {
         ],
         onLoadSuccess: function (data) {
             usuarios = data;
-            console.log(data);
         }
     });
 });

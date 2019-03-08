@@ -1,26 +1,6 @@
 
 var controladorApp = angular.module('SistemaGestionApp', []);
 
-// Aplica formato a las fechas de las tablas
-function formateadorFecha(value, row, index) {
-    var resultado = '-';
-        
-    if (value != null) {
-    	console.log(value);
-    	var epoch = new Date(value);
-    	console.log(epoch);
-    	var months = ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
-    	
-    	var dia = epoch.getDate();
-        var mes = months[epoch.getMonth()];
-        var anio = epoch.getFullYear();
-
-        resultado = dia + '/' + mes + '/' + anio;
-    }
-    
-    return resultado;
-}
-
 // Aplica formato al tipo de usuario de las tablas
 function formateadorTipoUsuario(value, row, index) {
     var resultado = '-';
@@ -59,4 +39,15 @@ function validaNombreApellido(entrada) {
 	var reg = /^([a-z \u00F1\u00E1\u00E9\u00ED\u00F3\u00FA\u00FC\u002D]{1,30})$/i;
 	
 	return reg.test(valor);
+}
+
+// Valida que al menos se haya seleccionado un registro
+function registroSeleccionado() {
+	var fila = $('#tabla-usuarios').bootstrapTable('getSelections');
+
+	if (fila.length < 1) {
+		return false;
+	} else {
+		return true;
+	}
 }
