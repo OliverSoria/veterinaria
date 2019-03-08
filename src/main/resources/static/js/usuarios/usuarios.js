@@ -93,9 +93,10 @@ controladorApp.controller('controlador', function($scope, $http) {
 // Move to its own file
 controladorApp.controller('operaciones_usuarios', function($scope, $http) {
 	$scope.usuarios = [{}];
-		
-	$scope.getUsuarios = function() {
-			
+	$scope.usuarioEliminar = 'unknown';
+
+		$scope.getUsuarios = function() {
+
 			$http({
 				 method: 'GET',
 				 url: 'usuarios/consulta',
@@ -123,8 +124,12 @@ controladorApp.controller('operaciones_usuarios', function($scope, $http) {
 			$('#modal-ningun-usuario').modal('show');
 			console.log('No se ha seleccionado ningún usuario');
 		} else {
-			console.log('Confirmar que desea eliminar un usuario');
 			// Ask for confirmation
+			console.log('Confirmar que desea eliminar un usuario ' + fila[0].aliasUsuario);
+            eliminarUsuarioBack(fila );
+
+
+
 		}
 	}
 	
@@ -140,6 +145,16 @@ controladorApp.controller('operaciones_usuarios', function($scope, $http) {
 			$('#modal-formulario').modal('show');
 		}
 	}
+
+	function eliminarUsuarioBack(fila) {
+		$('#modal-eliminar-usuario p').html(
+			'¿Desea eliminar al usuario ' + '<b>' + fila[0].aliasUsuario + '</b>' + '?');
+		$('#modal-eliminar-usuario').modal('show');
+
+
+	}
+
+
 });
 
 
