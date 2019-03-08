@@ -31,7 +31,7 @@ controladorApp.controller('operaciones_usuarios', function($scope, $http) {
         if (fila.length < 1) {
             $('#modal-ningun-usuario').modal('show');
         } else {
-
+            modificacionDeUsuario(fila[0]);
         }
 
     }

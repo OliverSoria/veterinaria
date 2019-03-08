@@ -57,7 +57,7 @@ controladorApp.controller('alta_usuario', function($scope, $http) {
 	
 
 	$scope.onAltaUsuarioAceptar = function(usuario) {
-		var tipoUsario = $('.selectpicker').selectpicker('val');
+		var tipoUsario = $('#selector-usuario-alta').selectpicker('val');
 		
 		user = {
 			idUsuario         : null            ,

@@ -2,7 +2,7 @@
 var controladorApp = angular.module('SistemaGestionApp', []);
 
 // Aplica formato al tipo de usuario de las tablas
-function formateadorTipoUsuario(value, row, index) {
+function formateadorTipoUsuario(value) {
     var resultado = '-';
         
     if (value != null) {
