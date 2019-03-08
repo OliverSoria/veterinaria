@@ -7,22 +7,19 @@
         <div class="modal-dialog">
 
             <!-- Modal content-->
-            <div class="modal-content" ng-controller="modificacion_usuario">
+            <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h4 class="modal-title">Modificar Usuario</h4>
                 </div>
                 <div class="modal-body">
-                    <div ng-show="usuariosModificacionPanel">
+                    <div>
                         <div class="row">
                             <span class="text-right col-xs-12 col-sm-6 col-md-6 row-vertcal">Usuario:</span>
                             <div class="col-xs-12 col-sm-6 col-md-6 has-success">
                                 <input type="text"
                                        id="modificacion-usuario-alias"
                                        disabled="disabled"
-                                       ng-model="usuario.alias"
-                                       ng-focus="onFocusUsuario()"
-                                       ng-keyup="onKeyUpUsuario()"
                                        class="form-control"
                                        style="margin-bottom:15px;"></input>
                                 <span class="glyphicon glyphicon-ok form-control-feedback glyphicon-input"></span>
@@ -30,41 +27,39 @@
                         </div>
                         <div class="row">
                             <span class="text-right col-xs-12 col-sm-6 col-md-6 row-vertcal">Nombre(s):</span>
-                            <div class="col-xs-12 col-sm-6 col-md-6 has-success">
+                            <div id="input-mod-nombre" class="col-xs-12 col-sm-6 col-md-6 has-success">
                                 <input type="text"
                                        id="modificacion-usuario-nombre"
-                                       ng-model="usuario.nombre"
-                                       ng-focus="onFocusNombre()"
+                                       onfocus="onFocusNombreMod()"
                                        ng-keyup="onKeyUpNombre()"
                                        class="form-control"
                                        style="margin-bottom:15px;"></input>
-                                <span class="glyphicon glyphicon-ok form-control-feedback glyphicon-input"></span>
+                                <span id="span-usuario-nombre" class="glyphicon glyphicon-ok form-control-feedback glyphicon-input"></span>
                             </div>
                         </div>
                         <div class="row">
                             <span class="text-right col-xs-12 col-sm-6 col-md-6 row-vertcal">Apellido Paterno:</span>
-                            <div class="col-xs-12 col-sm-6 col-md-6 has-success">
+                            <div id="input-mod-paterno" class="col-xs-12 col-sm-6 col-md-6 has-success">
                                 <input type="text"
                                        id="modificacion-usuario-paterno"
-                                       ng-model="usuario.paterno"
-                                       ng-focus="onFocusPaterno()"
+                                       onfocus="onFocusPaternoMod()"
                                        ng-keyup="onKeyUpPaterno()"
                                        class="form-control"
                                        style="margin-bottom:15px;"></input>
-                                <span class="glyphicon glyphicon-ok form-control-feedback glyphicon-input"></span>
+                                <span id="span-usuario-paterno" class="glyphicon glyphicon-ok form-control-feedback glyphicon-input"></span>
                             </div>
                         </div>
                         <div class="row">
                             <span class="text-right col-xs-12 col-sm-6 col-md-6 row-vertcal">Apellido Materno:</span>
-                            <div class="col-xs-12 col-sm-6 col-md-6 has-success">
+                            <div id="input-mod-materno" class="col-xs-12 col-sm-6 col-md-6 has-success">
                                 <input type="text"
                                        id="modificacion-usuario-materno"
                                        ng-model="usuario.materno"
-                                       ng-focus="onFocusMaterno()"
+                                       onfocus="onFocusMaternoMod()"
                                        ng-keyup="onKeyUpMaterno()"
                                        class="form-control"
                                        style="margin-bottom:15px;"></input>
-                                <span class="glyphicon glyphicon-ok form-control-feedback glyphicon-input"></span>
+                                <span id="span-usuario-materno" class="glyphicon glyphicon-ok form-control-feedback glyphicon-input"></span>
                             </div>
                         </div>
                         <div class="row">
@@ -72,8 +67,7 @@
                             <div class="col-xs-12 col-sm-6 col-md-6 has-success">
                                 <input type="password"
                                        id="modificacion-usuario-password"
-                                       ng-model="usuario.password"
-                                       ng-focus="onFocusPassword()"
+                                       onfocus="onFocusPasswordMod()"
                                        ng-keyup="onKeyUpPassword()"
                                        class="form-control"
                                        style="margin-bottom:15px;"></input>
@@ -85,8 +79,7 @@
                             <div class="col-xs-12 col-sm-6 col-md-6 has-success">
                                 <input type="password"
                                        id="modificacion-usuario-confirmar"
-                                       ng-model="confirmPwd"
-                                       ng-focus="onFocusConfirmar()"
+                                       onfocus="onFocusConfirmarMod()"
                                        ng-keyup="onKeyUpConfirmaPassword()"
                                        class="form-control"
                                        style="margin-bottom:15px;"></input>
@@ -110,7 +103,7 @@
                     <div class="row">
                         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                             <div class="form-group">
-                                <div class="alert alert-info alert-info-modal text-center">
+                                <div id="mensaje-modificacion-usuario" class="alert alert-info alert-info-modal text-center">
                                     Favor de realizar las modificaciones
                                 </div>
                             </div>
