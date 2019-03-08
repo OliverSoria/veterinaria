@@ -1,14 +1,13 @@
 function modificacionDeUsuario(fila) {
-    var fila = $('#tabla-usuarios').bootstrapTable('getSelections');
 
-    $('#modificacion-usuario-alias').val(fila[0].aliasUsuario);
-    $('#modificacion-usuario-nombre').val(fila[0].nombreUsuario);
-    $('#modificacion-usuario-paterno').val(fila[0].paternoUsuario);
-    $('#modificacion-usuario-materno').val(fila[0].maternoUsuario);
-    $('#modificacion-usuario-password').val(fila[0].passwordUsuario);
-    $('#modificacion-usuario-confirmar').val(fila[0].passwordUsuario);
+    $('#modificacion-usuario-alias').val(fila.aliasUsuario);
+    $('#modificacion-usuario-nombre').val(fila.nombreUsuario);
+    $('#modificacion-usuario-paterno').val(fila.paternoUsuario);
+    $('#modificacion-usuario-materno').val(fila.maternoUsuario);
+    $('#modificacion-usuario-password').val(fila.passwordUsuario);
+    $('#modificacion-usuario-confirmar').val(fila.passwordUsuario);
 
-    switch (fila[0].tipoUsuario) {
+    switch (fila.tipoUsuario) {
         case 'V' :
             $('#selector-usuario-modificacion').selectpicker('val', 1);
             break;
@@ -20,12 +19,5 @@ function modificacionDeUsuario(fila) {
             break;
     }
 
-
-
-
     $('#modal-modificacion-usuario').modal('show');
-
-
-
-
 }
