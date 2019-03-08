@@ -10,7 +10,7 @@
             <div class="modal-content" ng-controller="baja_usuario">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Confrimar eliminación de usuario</h4>
+                    <h4 class="modal-title"></h4>
                 </div>
                 <div class="modal-body">
                     <div class="row">
@@ -18,8 +18,9 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-success" data-dismiss="modal" ng-click="eliminaUsuarioBack()">Aceptar</button>
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-success" id="aceptar-eliminar-usuario" ng-click="eliminaUsuarioBack()">Aceptar</button>
+                    <button type="button" class="btn btn-success" id="cerrar-eliminar-usuario" data-dismiss="modal">Aceptar</button>
+                    <button type="button" class="btn btn-danger" id="cancelar-eliminar-usuario" data-dismiss="modal">Cancelar</button>
                 </div>
             </div>
         </div>

@@ -16,6 +16,8 @@ controladorApp.controller('alta_usuario', function($scope, $http) {
 	
 	// Variables para validar campos
 	$scope.validacionesFormulario = true;
+	$scope.usuariosAltaPanel = true;
+
 	var usuario  = true;
 	var nombre   = true;
 	var paterno  = true;
@@ -85,6 +87,7 @@ controladorApp.controller('alta_usuario', function($scope, $http) {
 			$scope.textAltaUsuario = '\u00a1El usuario fue dado de alta!';
 			$scope.cerrarAltaUsuario = true;
 			$scope.aceptarCancelarAltaUsuario = false;
+			$scope.usuariosAltaPanel = false;
 			$('.selectpicker').prop('disabled', true);
 			$('.selectpicker').selectpicker('refresh');
 		}, function errorCallback(response) {
@@ -93,7 +96,7 @@ controladorApp.controller('alta_usuario', function($scope, $http) {
 		});
 	}
 	
-	$scope.onAltaUsuarioCancelar = function(usuario) {
+	$scope.onAltaUsuarioCancelar = function() {
 		reseteaAltaUsuario();
 	}
 	
@@ -437,30 +440,33 @@ controladorApp.controller('alta_usuario', function($scope, $http) {
 	// Resetea el panel Alta de Usuario
 	function reseteaAltaUsuario() {
 		$('#modal-formulario').modal('hide');
-		$scope.usuario = null;
-		$scope.confirmPwd = null;
-		$('.selectpicker').selectpicker('val', 'Vendedor');
-		$('.selectpicker').prop('disabled', false);
-		$('.selectpicker').selectpicker('refresh');
-		$scope.alertUserClasses = 'alert alert-info alert-info-modal text-center';
-		$scope.colorUserUsuarioClasses = 'col-xs-12 col-sm-6 col-md-6 has-warning';
-		$scope.iconsUserUsuarioClasses = 'glyphicon glyphicon-warning-sign form-control-feedback glyphicon-input';
-		$scope.colorUserNombreClasses = 'col-xs-12 col-sm-6 col-md-6 has-warning';
-		$scope.iconsUserNombreClasses = 'glyphicon glyphicon-warning-sign form-control-feedback glyphicon-input';
-		$scope.colorUserPaternoClasses = 'col-xs-12 col-sm-6 col-md-6 has-warning';
-		$scope.iconsUserPaternoClasses = 'glyphicon glyphicon-warning-sign form-control-feedback glyphicon-input';
-		$scope.colorUserMaternoClasses = 'col-xs-12 col-sm-6 col-md-6 has-warning';
-		$scope.iconsUserMaternoClasses = 'glyphicon glyphicon-warning-sign form-control-feedback glyphicon-input';
-		$scope.colorUserPasswordClasses = 'col-xs-12 col-sm-6 col-md-6 has-warning';
-		$scope.iconsUserPasswordClasses = 'glyphicon glyphicon-warning-sign form-control-feedback glyphicon-input';
-		$scope.colorUserConfirmaPasswordClasses = 'col-xs-12 col-sm-6 col-md-6 has-warning';
-		$scope.iconsUserConfirmaPasswordClasses = 'glyphicon glyphicon-warning-sign form-control-feedback glyphicon-input';
-		$scope.textAltaUsuario = 'Favor de capturar la informaci\u00F3n';
-		$scope.cerrarAltaUsuario = false;
-		$scope.aceptarCancelarAltaUsuario = true;
-		$scope.validacionesFormulario = true;
-		$scope.inputsAltaUsuario = false;
-		$scope.tituloAltaUsuario = 'Agregar nuevo usuario';
+		setTimeout(function () {
+			$scope.usuario = null;
+			$scope.confirmPwd = null;
+			$('.selectpicker').selectpicker('val', 'Vendedor');
+			$('.selectpicker').prop('disabled', false);
+			$('.selectpicker').selectpicker('refresh');
+			$scope.alertUserClasses = 'alert alert-info alert-info-modal text-center';
+			$scope.colorUserUsuarioClasses = 'col-xs-12 col-sm-6 col-md-6 has-warning';
+			$scope.iconsUserUsuarioClasses = 'glyphicon glyphicon-warning-sign form-control-feedback glyphicon-input';
+			$scope.colorUserNombreClasses = 'col-xs-12 col-sm-6 col-md-6 has-warning';
+			$scope.iconsUserNombreClasses = 'glyphicon glyphicon-warning-sign form-control-feedback glyphicon-input';
+			$scope.colorUserPaternoClasses = 'col-xs-12 col-sm-6 col-md-6 has-warning';
+			$scope.iconsUserPaternoClasses = 'glyphicon glyphicon-warning-sign form-control-feedback glyphicon-input';
+			$scope.colorUserMaternoClasses = 'col-xs-12 col-sm-6 col-md-6 has-warning';
+			$scope.iconsUserMaternoClasses = 'glyphicon glyphicon-warning-sign form-control-feedback glyphicon-input';
+			$scope.colorUserPasswordClasses = 'col-xs-12 col-sm-6 col-md-6 has-warning';
+			$scope.iconsUserPasswordClasses = 'glyphicon glyphicon-warning-sign form-control-feedback glyphicon-input';
+			$scope.colorUserConfirmaPasswordClasses = 'col-xs-12 col-sm-6 col-md-6 has-warning';
+			$scope.iconsUserConfirmaPasswordClasses = 'glyphicon glyphicon-warning-sign form-control-feedback glyphicon-input';
+			$scope.textAltaUsuario = 'Favor de capturar la informaci\u00F3n';
+			$scope.cerrarAltaUsuario = false;
+			$scope.aceptarCancelarAltaUsuario = true;
+			$scope.validacionesFormulario = true;
+			$scope.usuariosAltaPanel = true;
+			$scope.inputsAltaUsuario = false;
+			$scope.tituloAltaUsuario = 'Agregar nuevo usuario';
+		}, 1500);
 	}
 });
 	

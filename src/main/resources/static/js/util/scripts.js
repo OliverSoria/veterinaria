@@ -40,14 +40,3 @@ function validaNombreApellido(entrada) {
 	
 	return reg.test(valor);
 }
-
-// Valida que al menos se haya seleccionado un registro
-function registroSeleccionado() {
-	var fila = $('#tabla-usuarios').bootstrapTable('getSelections');
-
-	if (fila.length < 1) {
-		return false;
-	} else {
-		return true;
-	}
-}
