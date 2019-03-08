@@ -2,7 +2,7 @@
 controladorApp.controller('operaciones_usuarios', function($scope, $http) {
     // Alta
     $scope.agregarUsuario = function() {
-        $('#modal-formulario').modal('show');
+        $('#modal-alta-usuario').modal('show');
     }
 
     // Baja
@@ -25,10 +25,15 @@ controladorApp.controller('operaciones_usuarios', function($scope, $http) {
     }
 
     // Modificacion
-    // if (registroSeleccionado()) {
-    //     $('#modal-ningun-usuario').modal('show');
-    // } else {
-    //     // Se procede con la modificacion
-    // }
+    $scope.modificarUsuario = function() {
+        var fila = $('#tabla-usuarios').bootstrapTable('getSelections');
+
+        if (fila.length < 1) {
+            $('#modal-ningun-usuario').modal('show');
+        } else {
+
+        }
+
+    }
 
 });

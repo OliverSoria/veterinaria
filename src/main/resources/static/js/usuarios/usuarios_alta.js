@@ -439,7 +439,7 @@ controladorApp.controller('alta_usuario', function($scope, $http) {
 	
 	// Resetea el panel Alta de Usuario
 	function reseteaAltaUsuario() {
-		$('#modal-formulario').modal('hide');
+		$('#modal-alta-usuario').modal('hide');
 		setTimeout(function () {
 			$scope.usuario = null;
 			$scope.confirmPwd = null;
