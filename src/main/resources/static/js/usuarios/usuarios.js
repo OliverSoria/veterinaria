@@ -95,18 +95,18 @@ controladorApp.controller('operaciones_usuarios', function($scope, $http) {
 	$scope.usuarios = [{}];
 	$scope.usuarioEliminar = 'unknown';
 
-		$scope.getUsuarios = function() {
+	$scope.getUsuarios = function () {
 
-			$http({
-				 method: 'GET',
-				 url: 'usuarios/consulta',
-				}).then(function successCallback(response) {
-				console.log(response.data);
-				$scope.usuarios = response.data;
-			}, function errorCallback(response) {
-				console.log(response);
-			});
-		}
+		$http({
+			method: 'GET',
+			url: 'usuarios/consulta',
+		}).then(function successCallback(response) {
+			console.log(response.data);
+			$scope.usuarios = response.data;
+		}, function errorCallback(response) {
+			console.log(response);
+		});
+	}
 	
 	// Alta
 	$scope.agregarUsuario = function() {
@@ -126,11 +126,23 @@ controladorApp.controller('operaciones_usuarios', function($scope, $http) {
 		} else {
 			// Ask for confirmation
 			console.log('Confirmar que desea eliminar un usuario ' + fila[0].aliasUsuario);
-            eliminarUsuarioBack(fila );
-
-
-
+            confirmaElimiarUsuario(fila[0].aliasUsuario);
 		}
+	}
+
+	$scope.eliminaUsuarioBack = function () {
+
+		var fila = $('#tabla-usuarios').bootstrapTable('getSelections');
+
+		$http({
+			method: 'POST',
+			url: 'usuarios/baja',
+			data: fila[0].aliasUsuario
+		}).then(function successCallback() {
+			$('#tabla-usuarios').bootstrapTable('refresh');
+		}, function errorCallback(response) {
+			console.log(response);
+		});
 	}
 	
 	// Modificacion
@@ -146,15 +158,11 @@ controladorApp.controller('operaciones_usuarios', function($scope, $http) {
 		}
 	}
 
-	function eliminarUsuarioBack(fila) {
+	function confirmaElimiarUsuario(fila) {
 		$('#modal-eliminar-usuario p').html(
-			'¿Desea eliminar al usuario ' + '<b>' + fila[0].aliasUsuario + '</b>' + '?');
+			'¿Desea eliminar al usuario ' + '<b>' + fila + '</b>' + '?');
 		$('#modal-eliminar-usuario').modal('show');
-
-
 	}
-
-
 });
 
 

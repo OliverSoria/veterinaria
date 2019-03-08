@@ -1,14 +1,13 @@
 package com.sistema.veterinaria.service;
 
-import java.util.Date;
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import com.sistema.veterinaria.entity.UsuarioEntity;
 import com.sistema.veterinaria.repository.IUsuarioRepository;
 import com.sistema.veterinaria.util.ExceptionCustomized;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.Date;
+import java.util.List;
 
 @Service
 public class UsuariosService {
@@ -89,7 +88,7 @@ public class UsuariosService {
 	}
 	
 	public void deleteUser(String aliasUsuario) throws Exception {
-		if (aliasUsuario == null || !aliasUsuario.trim().isEmpty()) {
+		if (aliasUsuario == null || aliasUsuario.trim().isEmpty()) {
 			throw new ExceptionCustomized("Usuario Inválido");
 		}
 		
