@@ -13,8 +13,11 @@ controladorApp.controller('baja_usuario', function ($scope, $http) {
             $('#cancelar-eliminar-usuario').hide();
             $('#aceptar-eliminar-usuario').hide();
             $('#cerrar-eliminar-usuario').show();
-            $('#modal-eliminar-usuario p').html(
-                'El usuario ha sido eliminado con éxito');
+            $('#modal-confirma-eliminar').html('El usuario ha sido eliminado con éxito');
+            $('#modal-confirma-eliminar').removeClass('alert-danger');
+            $('#modal-confirma-eliminar').addClass('alert-success');
+
+
             $('#modal-eliminar-usuario').modal('show');
             $('#tabla-usuarios').bootstrapTable('refresh');
         }, function errorCallback(response) {

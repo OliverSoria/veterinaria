@@ -16,7 +16,9 @@ controladorApp.controller('operaciones_usuarios', function($scope, $http) {
             $('#aceptar-eliminar-usuario').show();
             $('#cerrar-eliminar-usuario').hide();
             $('#modal-eliminar-usuario h4').html('Confirme eliminación de usuario');
-            $('#modal-eliminar-usuario p').html(
+            $('#modal-confirma-eliminar').addClass('alert-danger');
+            $('#modal-confirma-eliminar').removeClass('alert-success');
+            $('#modal-confirma-eliminar').html(
                 '¿Desea eliminar al usuario ' + '<b>' + fila[0].aliasUsuario + '</b>' + '?');
             $('#modal-eliminar-usuario').modal('show');
         }
